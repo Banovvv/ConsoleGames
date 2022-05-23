@@ -10,7 +10,7 @@
             Console.WriteLine("Your choice: [R]ock, [P]aper, [S]cissors?");
             string playerInput = Console.ReadLine();
 
-            if (!IsValidInput(playerInput))
+            if (!IsValidInput(playerInput) || playerInput == null)
             {
                 Console.WriteLine("Wrong input, try again");
                 GetUserInput();
@@ -25,9 +25,9 @@
         {
             switch (input)
             {
-                case "R": return 0;
-                case "P": return 1;
-                case "S": return 2;
+                case "R": Console.WriteLine("You selected Rock"); return 0;
+                case "P": Console.WriteLine("You selected Paper"); return 1;
+                case "S": Console.WriteLine("You selected Scissors"); return 2;
                 default: return -1;
             }
         }

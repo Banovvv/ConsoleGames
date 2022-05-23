@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Rock_Paper_Scissors
+﻿namespace Rock_Paper_Scissors
 {
     public class Game
     {
@@ -29,9 +23,39 @@ namespace Rock_Paper_Scissors
             }
         }
 
-        internal string CompareChoices(string player, string computer)
+        internal void CompareChoices(string player, string computer)
         {
-            return string.Empty;
+            int result = 0;
+
+            if (player == "R" && computer == "R")
+            {
+                result = 0;
+            }
+            else if (player == "R" && computer == "P")
+            {
+                result = 1;
+            }
+            else if (player == "R" && computer == "S")
+            {
+                result = -1;
+            }
+
+            if (result == 0)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Draw!");
+            }
+            else if (result == -1)
+            {
+                Console.WriteLine();
+                Console.WriteLine("You win!");
+            }
+            else if (result == 1)
+            {
+                Console.WriteLine();
+                Console.WriteLine("The Computer win!");
+            }
+
         }
 
         internal void Pause()

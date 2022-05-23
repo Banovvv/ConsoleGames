@@ -24,9 +24,9 @@ namespace Rock_Paper_Scissors
         {
             switch(_moves[_random.Next(0, _moves.Count)])
             {
-                case 0: return "R";
-                case 1: return "P";
-                case 2: return "S";
+                case 0: Console.WriteLine("The Computer selected Rock"); return "R";
+                case 1: Console.WriteLine("The Computer selected Paper"); return "P";
+                case 2: Console.WriteLine("The Computer selected Scissors"); return "S";
                 default: return string.Empty;
             }
         }
