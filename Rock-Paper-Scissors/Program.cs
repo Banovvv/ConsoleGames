@@ -2,7 +2,7 @@
 {
     public class Program
     {
-        public void Main()
+        public static void Main()
         {
             Game game = new Game();
 
