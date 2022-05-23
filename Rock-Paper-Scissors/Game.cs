@@ -27,18 +27,44 @@
         {
             int result = 0;
 
+            #region CompareMoves
             if (player == "R" && computer == "R")
             {
                 result = 0;
             }
-            else if (player == "R" && computer == "P")
+            else if (player == "P" && computer == "P")
             {
-                result = 1;
+                result = 0;
+            }
+            else if(player == "S" && computer == "S")
+            {
+                result = 0;
             }
             else if (player == "R" && computer == "S")
             {
                 result = -1;
             }
+            else if (player == "P" && computer == "R")
+            {
+                result = -1;
+            }
+            else if (player == "S" && computer == "P")
+            {
+                result = -1;
+            }
+            else if (player == "R" && computer == "P")
+            {
+                result = 1;
+            }
+            else if (player == "P" && computer == "S")
+            {
+                result = 1;
+            }
+            else if (player == "S" && computer == "R")
+            {
+                result = 1;
+            }
+            #endregion
 
             if (result == 0)
             {
