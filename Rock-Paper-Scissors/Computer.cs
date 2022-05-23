@@ -6,24 +6,29 @@ using System.Threading.Tasks;
 
 namespace Rock_Paper_Scissors
 {
-    public class Computer : Player
+    public static class Computer
     {
         private static Random _random;
-        private static List<string> _moves;
+        private static List<int> _moves = Enum.GetValues(typeof(Moves.ValidMoves)).Cast<int>().ToList();
 
-        public Computer()
+        static Computer()
         {
             _random = new Random();
-            _moves = new List<string>()
-            {
-                "Rock",
-                "Paper",
-                "Scissors"
-            };
         }
         public static string GetComputerInput()
         {
-            return _moves[_random.Next(0, _moves.Count)];
+            return GetRandomInput();
+        }
+
+        private static string GetRandomInput()
+        {
+            switch(_moves[_random.Next(0, _moves.Count)])
+            {
+                case 0: return "R";
+                case 1: return "P";
+                case 2: return "S";
+                default: return string.Empty;
+            }
         }
     }
 }

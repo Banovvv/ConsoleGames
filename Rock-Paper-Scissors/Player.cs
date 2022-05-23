@@ -1,20 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Rock_Paper_Scissors
+﻿namespace Rock_Paper_Scissors
 {
-    public class Player
+    public static class Player
     {
-        private string? _playerInput;
+        private static List<int> _moves = Enum.GetValues(typeof(Moves.ValidMoves)).Cast<int>().ToList();
 
-        public string? GetUserInput()
+
+        public static string? GetUserInput()
         {
-            _playerInput = Console.ReadLine();
+            Console.WriteLine("Your choice: [R]ock, [P]aper, [S]cissors?");
+            string playerInput = Console.ReadLine();
 
-            return _playerInput;
+            if (!IsValidInput(playerInput))
+            {
+                Console.WriteLine("Wrong input, try again");
+                GetUserInput();
+            }
+
+            return playerInput;
+        }
+
+        private static bool IsValidInput(string input) => _moves.Contains(GetNumericInput(input));
+
+        private static int GetNumericInput(string input)
+        {
+            switch (input)
+            {
+                case "R": return 0;
+                case "P": return 1;
+                case "S": return 2;
+                default: return -1;
+            }
         }
     }
 }

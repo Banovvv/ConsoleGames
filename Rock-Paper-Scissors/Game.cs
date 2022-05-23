@@ -15,11 +15,15 @@ namespace Rock_Paper_Scissors
 
         public void Run()
         {
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WindowWidth = 50;
+
             while (true)
             {
                 GameField();
 
-                
+                CompareChoices(Player.GetUserInput(), Computer.GetComputerInput());
 
                 Pause();
             }
@@ -32,7 +36,8 @@ namespace Rock_Paper_Scissors
 
         internal void Pause()
         {
-            Console.WriteLine("\nPress <ENTER> to continue.");
+            Console.WriteLine();
+            Console.WriteLine("Press <ENTER> to continue");
             Console.ReadLine();
         }
 
@@ -40,7 +45,9 @@ namespace Rock_Paper_Scissors
         {
             Console.Clear();
 
-            Console.WriteLine($"Rock-Paper-Scissors\n{new string('#', 30)}\n");
+            Console.WriteLine($@"           Rock-Paper-Scissors");
+            Console.WriteLine(new string('#', 41));
+            Console.WriteLine();
         }
     }
 }
