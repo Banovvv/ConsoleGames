@@ -24,7 +24,7 @@ namespace Ship_Captain_Crew
 
         public void PlayMove()
         {
-            for (int i = 0; i < 3; i++) // Every player has exactly three throws
+            for (int @throw = 1; @throw <= 3; @throw++) // Every player has exactly three throws
             {
                 RollDice();
 
@@ -40,6 +40,8 @@ namespace Ship_Captain_Crew
                         {
                             Bank.Add(hasSix);
                             Dice.Remove(hasSix);
+
+                            Console.WriteLine("You got the Ship, nice!");
                         }
 
                         if (hasFive != null || Bank.Count == 2)
@@ -48,6 +50,8 @@ namespace Ship_Captain_Crew
                             {
                                 Bank.Add(hasFive);
                                 Dice.Remove(hasFive);
+
+                                Console.WriteLine("You got the Captain, well done!");
                             }
 
                             if (hasFour != null)
@@ -55,17 +59,27 @@ namespace Ship_Captain_Crew
                                 Bank.Add(hasFour);
                                 Dice.Remove(hasFour);
 
+                                Console.WriteLine("You got the Crew, good job!");
+
                                 ShipCaptainCrew = true;
+
+                                CalculateScore();
+                                PrintScore();
+                                break;
                             }
                         }
                     }
                 }
                 else
                 {
-                    foreach (var die in Dice)
-                    {
-                        Score += die.Score;
-                    }
+                    CalculateScore();
+                    PrintScore();
+                    break;
+                }
+
+                if (!ShipCaptainCrew && @throw == 3)
+                {
+                    PrintScore();
                 }
             }
         }
@@ -76,6 +90,22 @@ namespace Ship_Captain_Crew
             {
                 die.Roll();
             }
+            
+            Console.WriteLine($"{Name} rolled: {string.Join(", ", Dice.Select(x=>x.Score))}");
+        }
+
+        public void CalculateScore()
+        {
+            foreach (var die in Dice)
+            {
+                Score += die.Score;
+            }
+        }
+
+        public void PrintScore()
+        {
+            Console.WriteLine($"Your score is: {Score}");
+            Console.WriteLine();
         }
 
         public void SetName()
