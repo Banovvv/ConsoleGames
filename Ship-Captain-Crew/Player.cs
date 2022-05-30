@@ -70,12 +70,6 @@ namespace Ship_Captain_Crew
                         }
                     }
                 }
-                else
-                {
-                    CalculateScore();
-                    PrintScore();
-                    break;
-                }
 
                 if (!ShipCaptainCrew && @throw == 3)
                 {
@@ -108,21 +102,9 @@ namespace Ship_Captain_Crew
             Console.WriteLine();
         }
 
-        public void SetName()
+        public void SetName(string name)
         {
-            Console.Write("Please enter your name: ");
-
-            string name = Console.ReadLine();
-
-            if (string.IsNullOrWhiteSpace(name))
-            {
-                Console.WriteLine("Your name shouldn't be empty, try again.");
-                SetName();
-            }
-            else
-            {
-                Name = name;
-            }
+            Name = name;
         }
     }
 }

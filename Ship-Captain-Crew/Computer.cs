@@ -62,12 +62,6 @@ namespace Ship_Captain_Crew
                         }
                     }
                 }
-                else
-                {
-                    CalculateScore();
-                    PrintScore();
-                    break;
-                }
 
                 if(!ShipCaptainCrew && @throw == 3)
                 {
