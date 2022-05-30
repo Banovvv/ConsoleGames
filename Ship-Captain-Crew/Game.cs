@@ -13,6 +13,10 @@ namespace Ship_Captain_Crew
 
         public void Run()
         {
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WindowWidth = 40;
+
             while (true)
             {
                 DrawField();
