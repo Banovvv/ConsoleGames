@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace Ship_Captain_Crew
 {
@@ -42,6 +43,8 @@ namespace Ship_Captain_Crew
                             Dice.Remove(hasSix);
 
                             Console.WriteLine("You got the Ship, nice!");
+
+                            Thread.Sleep(1000);
                         }
 
                         if (hasFive != null || Bank.Count == 2)
@@ -52,6 +55,8 @@ namespace Ship_Captain_Crew
                                 Dice.Remove(hasFive);
 
                                 Console.WriteLine("You got the Captain, well done!");
+
+                                Thread.Sleep(1000);
                             }
 
                             if (hasFour != null)
@@ -60,6 +65,8 @@ namespace Ship_Captain_Crew
                                 Dice.Remove(hasFour);
 
                                 Console.WriteLine("You got the Crew, good job!");
+
+                                Thread.Sleep(1000);
 
                                 ShipCaptainCrew = true;
 
@@ -86,6 +93,8 @@ namespace Ship_Captain_Crew
             }
             
             Console.WriteLine($"{Name} rolled: {string.Join(", ", Dice.Select(x=>x.Score))}");
+
+            Thread.Sleep(1000);
         }
 
         public void CalculateScore()

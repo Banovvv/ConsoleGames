@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace Ship_Captain_Crew
 {
@@ -34,6 +35,8 @@ namespace Ship_Captain_Crew
                             Dice.Remove(hasSix);
 
                             Console.WriteLine("The Computer got the Ship.");
+
+                            Thread.Sleep(1000);
                         }
 
                         if (hasFive != null || Bank.Count == 2)
@@ -44,6 +47,8 @@ namespace Ship_Captain_Crew
                                 Dice.Remove(hasFive);
 
                                 Console.WriteLine("The Computer got the Captain.");
+
+                                Thread.Sleep(1000);
                             }
 
                             if (hasFour != null)
@@ -52,6 +57,8 @@ namespace Ship_Captain_Crew
                                 Dice.Remove(hasFour);
 
                                 Console.WriteLine("The Computer got the Crew.");
+
+                                Thread.Sleep(1000);
 
                                 ShipCaptainCrew = true;
 
@@ -78,6 +85,8 @@ namespace Ship_Captain_Crew
             }
 
             Console.WriteLine($"The Computer rolled: {string.Join(", ", Dice.Select(x => x.Score))}");
+
+            Thread.Sleep(1000);
         }
 
         public new void PrintScore()
