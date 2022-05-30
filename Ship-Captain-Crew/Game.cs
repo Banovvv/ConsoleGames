@@ -21,6 +21,12 @@ namespace Ship_Captain_Crew
             {
                 DrawField();
 
+                Player player = new Player();
+                player.SetName();
+                Computer npc = new Computer();
+                player.PlayMove();
+                npc.PlayMove();
+
                 Pause();
             }
         }

@@ -12,13 +12,15 @@ namespace Ship_Captain_Crew
 
         public void Roll()
         {
-            Score = Random.Next(0, Sides + 1);
+            Score = Random.Next(1, Sides + 1);
         }
 
         public void Draw()
         {
             
         }
+
+        public override string ToString() => $"{Score}";
 
         internal string GetDiceDrawing()
         {
