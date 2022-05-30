@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 
 namespace Ship_Captain_Crew
@@ -70,7 +68,7 @@ namespace Ship_Captain_Crew
                     }
                 }
 
-                if(!ShipCaptainCrew && @throw == 3)
+                if (!ShipCaptainCrew && @throw == 3)
                 {
                     PrintScore();
                 }

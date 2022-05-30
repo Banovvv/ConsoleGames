@@ -91,8 +91,8 @@ namespace Ship_Captain_Crew
             {
                 die.Roll();
             }
-            
-            Console.WriteLine($"{Name} rolled: {string.Join(", ", Dice.Select(x=>x.Score))}");
+
+            Console.WriteLine($"{Name} rolled: {string.Join(", ", Dice.Select(x => x.Score))}");
 
             Thread.Sleep(1000);
         }

@@ -17,7 +17,7 @@ namespace Ship_Captain_Crew
 
         public void Draw()
         {
-            
+
         }
 
         public override string ToString() => $"{Score}";
@@ -25,8 +25,8 @@ namespace Ship_Captain_Crew
         internal string GetDiceDrawing()
         {
             StringBuilder sb = new StringBuilder();
-            
-            if(Score == 1)
+
+            if (Score == 1)
             {
                 sb.AppendLine("╔═══════╗");
                 sb.AppendLine("║       ║");

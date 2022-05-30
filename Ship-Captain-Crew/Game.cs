@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Ship_Captain_Crew
 {
@@ -38,7 +36,7 @@ namespace Ship_Captain_Crew
 
         private void GetWinner(Player player, Computer computer)
         {
-            if(player.Score > computer.Score)
+            if (player.Score > computer.Score)
             {
                 Console.WriteLine("You win!");
                 Console.WriteLine($"Your score is {player.Score},\nwhile the Computer has {computer.Score}");
