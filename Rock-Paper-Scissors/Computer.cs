@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Rock_Paper_Scissors
+﻿namespace Rock_Paper_Scissors
 {
     public static class Computer
     {
@@ -22,7 +16,7 @@ namespace Rock_Paper_Scissors
 
         private static string GetRandomInput()
         {
-            switch(_moves[_random.Next(0, _moves.Count)])
+            switch (_moves[_random.Next(0, _moves.Count)])
             {
                 case 0: Console.WriteLine("The Computer selected Rock"); return "R";
                 case 1: Console.WriteLine("The Computer selected Paper"); return "P";

@@ -36,7 +36,7 @@
             {
                 result = 0;
             }
-            else if(player == "S" && computer == "S")
+            else if (player == "S" && computer == "S")
             {
                 result = 0;
             }

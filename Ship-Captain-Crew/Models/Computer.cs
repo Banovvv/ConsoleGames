@@ -9,7 +9,7 @@ namespace Ship_Captain_Crew
     public class Computer : IPlayer
     {
         private bool ShipCaptainCrew = false;
-                
+
         public Computer()
         {
             Dice.Add(new Die());
