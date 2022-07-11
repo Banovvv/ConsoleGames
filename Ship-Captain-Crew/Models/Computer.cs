@@ -1,21 +1,23 @@
-﻿using System;
+﻿using Ship_Captain_Crew.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
 namespace Ship_Captain_Crew
 {
-    public class Player
+    public class Computer : IPlayer
     {
         private bool ShipCaptainCrew = false;
-
-        public Player()
+                
+        public Computer()
         {
             Dice.Add(new Die());
             Dice.Add(new Die());
             Dice.Add(new Die());
             Dice.Add(new Die());
             Dice.Add(new Die());
+            SetName("Computer");
         }
 
         public string Name { get; set; }
@@ -42,7 +44,7 @@ namespace Ship_Captain_Crew
                             Bank.Add(hasSix);
                             Dice.Remove(hasSix);
 
-                            Console.WriteLine("You got the Ship, nice!");
+                            Console.WriteLine("The Computer got the Ship.");
 
                             Thread.Sleep(1000);
                         }
@@ -54,7 +56,7 @@ namespace Ship_Captain_Crew
                                 Bank.Add(hasFive);
                                 Dice.Remove(hasFive);
 
-                                Console.WriteLine("You got the Captain, well done!");
+                                Console.WriteLine("The Computer got the Captain.");
 
                                 Thread.Sleep(1000);
                             }
@@ -64,7 +66,7 @@ namespace Ship_Captain_Crew
                                 Bank.Add(hasFour);
                                 Dice.Remove(hasFour);
 
-                                Console.WriteLine("You got the Crew, good job!");
+                                Console.WriteLine("The Computer got the Crew.");
 
                                 Thread.Sleep(1000);
 
@@ -92,9 +94,15 @@ namespace Ship_Captain_Crew
                 die.Roll();
             }
 
-            Console.WriteLine($"{Name} rolled: {string.Join(", ", Dice.Select(x => x.Score))}");
+            Console.WriteLine($"The Computer rolled: {string.Join(", ", Dice.Select(x => x.Score))}");
 
             Thread.Sleep(1000);
+        }
+
+        public void PrintScore()
+        {
+            Console.WriteLine($"The Computer's score is: {Score}");
+            Console.WriteLine();
         }
 
         public void CalculateScore()
@@ -103,12 +111,6 @@ namespace Ship_Captain_Crew
             {
                 Score += die.Score;
             }
-        }
-
-        public void PrintScore()
-        {
-            Console.WriteLine($"Your score is: {Score}");
-            Console.WriteLine();
         }
 
         public void SetName(string name)

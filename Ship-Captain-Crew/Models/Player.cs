@@ -1,19 +1,30 @@
-﻿using System;
+﻿using Ship_Captain_Crew.Interfaces;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
 namespace Ship_Captain_Crew
 {
-    public class Computer : Player
+    public class Player : IPlayer
     {
         private bool ShipCaptainCrew = false;
 
-        public Computer()
+        public Player()
         {
-            Name = "Computer";
+            Dice.Add(new Die());
+            Dice.Add(new Die());
+            Dice.Add(new Die());
+            Dice.Add(new Die());
+            Dice.Add(new Die());
         }
 
-        public new void PlayMove()
+        public string Name { get; set; }
+        public int Score { get; set; } = 0;
+        public List<Die> Dice { get; set; } = new List<Die>();
+        public List<Die> Bank { get; set; } = new List<Die>();
+
+        public void PlayMove()
         {
             for (int @throw = 1; @throw <= 3; @throw++) // Every player has exactly three throws
             {
@@ -32,7 +43,7 @@ namespace Ship_Captain_Crew
                             Bank.Add(hasSix);
                             Dice.Remove(hasSix);
 
-                            Console.WriteLine("The Computer got the Ship.");
+                            Console.WriteLine("You got the Ship, nice!");
 
                             Thread.Sleep(1000);
                         }
@@ -44,7 +55,7 @@ namespace Ship_Captain_Crew
                                 Bank.Add(hasFive);
                                 Dice.Remove(hasFive);
 
-                                Console.WriteLine("The Computer got the Captain.");
+                                Console.WriteLine("You got the Captain, well done!");
 
                                 Thread.Sleep(1000);
                             }
@@ -54,7 +65,7 @@ namespace Ship_Captain_Crew
                                 Bank.Add(hasFour);
                                 Dice.Remove(hasFour);
 
-                                Console.WriteLine("The Computer got the Crew.");
+                                Console.WriteLine("You got the Crew, good job!");
 
                                 Thread.Sleep(1000);
 
@@ -75,22 +86,35 @@ namespace Ship_Captain_Crew
             }
         }
 
-        public new void RollDice()
+        public void RollDice()
         {
             foreach (var die in Dice)
             {
                 die.Roll();
             }
 
-            Console.WriteLine($"The Computer rolled: {string.Join(", ", Dice.Select(x => x.Score))}");
+            Console.WriteLine($"{Name} rolled: {string.Join(", ", Dice.Select(x => x.Score))}");
 
             Thread.Sleep(1000);
         }
 
-        public new void PrintScore()
+        public void CalculateScore()
         {
-            Console.WriteLine($"The Computer's score is: {Score}");
+            foreach (var die in Dice)
+            {
+                Score += die.Score;
+            }
+        }
+
+        public void PrintScore()
+        {
+            Console.WriteLine($"Your score is: {Score}");
             Console.WriteLine();
+        }
+
+        public void SetName(string name)
+        {
+            Name = name;
         }
     }
 }
